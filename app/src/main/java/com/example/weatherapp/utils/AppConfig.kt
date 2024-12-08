@@ -10,6 +10,7 @@ class AppConfig : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            printLogger()
             modules(listOf(repositoryModule, viewModelModule))
         }
     }

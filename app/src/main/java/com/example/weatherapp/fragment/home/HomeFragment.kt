@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,6 +60,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setWeatherDataAdapter()
+        setWeatherData()
         setObservers()
     }
 
@@ -79,15 +81,12 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
     private fun setWeatherDataAdapter() {
         binding.weatherDataRecyclerView.adapter = weatherDataAdapter
     }
 
-    private fun setWeatherData(currentLocation: CurrentLocation) {
-        weatherDataAdapter.setData(
-            data = listOf(currentLocation)
-        )
+    private fun setWeatherData(currentLocation: CurrentLocation? = null) {
+        weatherDataAdapter.setData(data = listOf(CurrentLocation()))
     }
 
     private fun getCurrentLocation() {
@@ -126,12 +125,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun showLoading() {
-        binding.weatherDataRecyclerView.visibility = View.INVISIBLE
-        binding.swipeRefreshLayout.isRefreshing = true
+        with(binding) {
+            weatherDataRecyclerView.visibility = View.GONE
+            swipeRefreshLayout.isRefreshing = true
+        }
     }
 
     private fun hideLoading() {
-        binding.weatherDataRecyclerView.visibility = View.VISIBLE
-        binding.swipeRefreshLayout.isRefreshing = false
+        with(binding){
+            weatherDataRecyclerView.visibility = View.VISIBLE
+            swipeRefreshLayout.isRefreshing = false
+        }
     }
 }
