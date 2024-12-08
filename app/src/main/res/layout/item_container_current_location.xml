@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Current Date -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textCurrentDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:textColor="@color/sonic_silver"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toStartOf="@+id/imageCurrentLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Today, Dec 6, 2024" />
+
+    <!-- Location Icon -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageLocation"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:src="@drawable/location_on_24px"
+        android:tint="@color/sonic_silver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textCurrentDate" />
+
+    <!-- Current Location Text -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textCurrentLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/rasin_black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toEndOf="@id/imageLocation"
+        app:layout_constraintTop_toTopOf="@id/imageLocation"
+        app:layout_constraintBottom_toBottomOf="@id/imageLocation"
+        tools:text="Lipa City, Batangas Philippines" />
+
+    <!-- Current Location Icon -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageCurrentLocation"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:src="@drawable/location_searching_24px"
+        android:tint="@color/sonic_silver"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textCurrentDate"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

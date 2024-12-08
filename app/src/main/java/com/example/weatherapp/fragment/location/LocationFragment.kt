@@ -1,4 +1,4 @@
-package com.example.weatherapp.location
+package com.example.weatherapp.fragment.location
 
 import androidx.fragment.app.Fragment
 
